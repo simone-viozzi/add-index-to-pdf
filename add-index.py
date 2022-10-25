@@ -1,14 +1,14 @@
 #! python
 
+import argparse
+import locale
+import os
 from collections import defaultdict
-from symbol import file_input
 
+import ghostscript
 import pandas
 from numpy import zeros_like
-import locale
-import ghostscript
-import os
-import argparse
+
 
 def get_pdfmark_element(page, title, count=None):
 
