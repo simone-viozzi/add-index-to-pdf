@@ -7,7 +7,7 @@ from collections import defaultdict
 
 import ghostscript
 import pandas
-from numpy import zeros_like
+import numpy as np
 
 
 def get_pdfmark_element(page, title, count=None):
@@ -29,7 +29,7 @@ def get_count(df):
     levels = df.level.to_numpy()
 
     assert levels[0] == 1, "First level must be 1"
-    count = zeros_like(levels)
+    count = np.zeros_like(levels)
 
     curr_levels = defaultdict(lambda: 0)
 
@@ -113,6 +113,8 @@ if __name__ == "__main__":
     df = get_count(df)
 
     pdfmarks = get_pdfmarks(df)
+
+    print(pdfmarks)
 
     run_ghostscript(pdfmarks, file_input, file_output)
     
